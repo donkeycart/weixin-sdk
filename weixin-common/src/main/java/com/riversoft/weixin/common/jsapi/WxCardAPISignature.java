@@ -8,7 +8,7 @@ public class WxCardAPISignature {
     /**
      * 是否是拉起卡券接口，
      * 两种API可以支持：拉起卡券和添加到卡包
-     *
+     * <p>
      * 拉起卡券接口appID会参与签名
      */
     private boolean chooseCard;
@@ -21,11 +21,13 @@ public class WxCardAPISignature {
      */
     private String cardId;
 
-    /** 拉起卡券
+    /**
+     * 拉起卡券
      */
     private String locationId;
 
-    /** 拉起卡券
+    /**
+     * 拉起卡券
      */
     private String cardType;
 

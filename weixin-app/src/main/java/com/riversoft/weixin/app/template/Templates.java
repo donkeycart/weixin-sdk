@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 模板消息API
- *
+ * <p>
  * Created by Borball on 11/07/2016.
  */
 public class Templates {

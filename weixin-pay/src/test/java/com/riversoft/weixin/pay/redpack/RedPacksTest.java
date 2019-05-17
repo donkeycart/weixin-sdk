@@ -12,7 +12,7 @@ import org.junit.Test;
 public class RedPacksTest {
 
     @Test
-    public void testSendSingle(){
+    public void testSendSingle() {
         //woden: oby4gwXNTVGvcroy9ehU7LGWkRtY
         //cyrus: oby4gwWNM0GkuU1LTS4lqK1qMg1s
         //borball: oby4gwX7iPPp-lWZ3t7yGsQ0GbHw
@@ -35,7 +35,7 @@ public class RedPacksTest {
     }
 
     @Test
-    public void testSendGroup(){
+    public void testSendGroup() {
         //woden|wx28a41929a2d6a297|obJjTwAptnfB5pBDpDuKCRA2oVDQ
         RedPackRequest redPackRequest = new RedPackRequest();
         redPackRequest.setAppId("wx28a41929a2d6a297");
@@ -56,7 +56,7 @@ public class RedPacksTest {
     }
 
     @Test
-    public void testGet(){
+    public void testGet() {
         RedPackResult redPackResult = RedPacks.defaultRedPacks().query("1292063901201512030000000001");
         Assert.assertNotNull(redPackResult);
     }

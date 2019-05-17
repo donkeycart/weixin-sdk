@@ -44,8 +44,8 @@ public class JsAPIs {
     /**
      * 调用微信JS接口的临时票据
      */
-    private synchronized void getJsAPITicket(){
-        if(jsAPITicket == null || jsAPITicket.expired()) {//double check
+    private synchronized void getJsAPITicket() {
+        if (jsAPITicket == null || jsAPITicket.expired()) {//double check
             String url = WxEndpoint.get("url.jsapi.ticket.get");
             String response = wxClient.get(url);
             this.jsAPITicket = APITicket.fromJson(response);
@@ -55,8 +55,8 @@ public class JsAPIs {
     /**
      * 获取管理组临时票据
      */
-    private synchronized void getJsAPIGroupTicket(){
-        if(jsAPIGroupTicket == null || jsAPIGroupTicket.expired()) {//double check
+    private synchronized void getJsAPIGroupTicket() {
+        if (jsAPIGroupTicket == null || jsAPIGroupTicket.expired()) {//double check
             String url = WxEndpoint.get("url.jsapi.ticket.group.get");
             String response = wxClient.get(url);
             this.jsAPIGroupTicket = APITicket.fromJson(response);
@@ -65,11 +65,12 @@ public class JsAPIs {
 
     /**
      * 创建JsAPI签名
+     *
      * @param url
      * @return
      */
-    public JsAPISignature createJsAPISignature(String url){
-        if(jsAPITicket == null || jsAPITicket.expired()) {
+    public JsAPISignature createJsAPISignature(String url) {
+        if (jsAPITicket == null || jsAPITicket.expired()) {
             getJsAPITicket();
         }
 
@@ -95,11 +96,12 @@ public class JsAPIs {
 
     /**
      * 创建企业号管理组权限签名
+     *
      * @param url
      * @return
      */
-    public JsAPISignature createJsAPIGroupSignature(String url){
-        if(jsAPIGroupTicket == null || jsAPIGroupTicket.expired()) {
+    public JsAPISignature createJsAPIGroupSignature(String url) {
+        if (jsAPIGroupTicket == null || jsAPIGroupTicket.expired()) {
             getJsAPIGroupTicket();
         }
 

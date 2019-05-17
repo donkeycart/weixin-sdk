@@ -12,7 +12,7 @@ import java.util.List;
 public class MpMessagesTest {
 
     @Test
-    public void testSend(){
+    public void testSend() {
         List<String> users = new ArrayList<>();
         users.add("o7Tmfs3EHCndVenva5knKxA4D3XA");
         users.add("o7Tmfs96UDesd920Gzi0jYJPnBzQ");
@@ -20,7 +20,7 @@ public class MpMessagesTest {
     }
 
     @Test
-    public void testSendAll(){
+    public void testSendAll() {
         long msgId = MpMessages.defaultMpMessages().mpNews("oR82Fct6wNYgjjFMQVNdmi089sdyuSVtovm1DFqG0Wg");
         boolean result = MpMessages.defaultMpMessages().success(msgId);
 

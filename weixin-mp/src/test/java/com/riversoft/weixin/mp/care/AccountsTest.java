@@ -15,19 +15,19 @@ import java.util.List;
 public class AccountsTest {
 
     @Test
-    public void testCreate(){
+    public void testCreate() {
         Accounts.defaultAccounts().add("kf1@riversoft", "kf1", md5("river2015"));
     }
 
     @Test
-    public void testList(){
+    public void testList() {
         List<Account> accounts = Accounts.defaultAccounts().list();
 
         Assert.assertNotNull(accounts);
     }
 
     @Test
-    public void testListStatus(){
+    public void testListStatus() {
         List<AccountStatus> accountStatuses = Accounts.defaultAccounts().listStatus();
 
         Assert.assertNotNull(accountStatuses);

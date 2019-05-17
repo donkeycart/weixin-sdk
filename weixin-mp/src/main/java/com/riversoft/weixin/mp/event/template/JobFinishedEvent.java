@@ -33,7 +33,7 @@ public class JobFinishedEvent extends EventRequest {
         this.status = status;
     }
 
-    public boolean success(){
+    public boolean success() {
         return "success".equalsIgnoreCase(this.status);
     }
 }

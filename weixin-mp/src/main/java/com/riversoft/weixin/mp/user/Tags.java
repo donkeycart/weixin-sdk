@@ -40,6 +40,7 @@ public class Tags {
 
     /**
      * 增加标签
+     *
      * @param name 标签名字
      * @return
      */
@@ -55,6 +56,7 @@ public class Tags {
 
     /**
      * 修改标签
+     *
      * @param tag 标签
      */
     public void update(Tag tag) {
@@ -66,6 +68,7 @@ public class Tags {
 
     /**
      * 删除标签
+     *
      * @param id 标签ID
      */
     public void delete(int id) {
@@ -77,6 +80,7 @@ public class Tags {
 
     /**
      * 获取所有的标签
+     *
      * @return
      */
     public List<Tag> list() {
@@ -89,6 +93,7 @@ public class Tags {
 
     /**
      * 获取标签下的用户列表
+     *
      * @param tagId 标签ID
      * @return
      */
@@ -98,7 +103,8 @@ public class Tags {
 
     /**
      * 获取标签下的用户列表
-     * @param tagId 标签ID
+     *
+     * @param tagId      标签ID
      * @param nextOpenId 下一个openId
      * @return
      */
@@ -119,10 +125,11 @@ public class Tags {
 
     /**
      * 给一批用户加标签
-     * @param tagId 标签ID
+     *
+     * @param tagId   标签ID
      * @param openIds openID列表
      */
-    public void tagUsers(int tagId, List<String> openIds){
+    public void tagUsers(int tagId, List<String> openIds) {
         Map<String, Object> map = new HashMap<>();
         map.put("tagid", tagId);
         map.put("openid_list", openIds);
@@ -133,10 +140,11 @@ public class Tags {
 
     /**
      * 给一批用户加取消标签
-     * @param tagId 标签ID
+     *
+     * @param tagId   标签ID
      * @param openIds openID列表
      */
-    public void unTagUsers(int tagId, List<String> openIds){
+    public void unTagUsers(int tagId, List<String> openIds) {
         Map<String, Object> map = new HashMap<>();
         map.put("tagid", tagId);
         map.put("openid_list", openIds);
@@ -147,6 +155,7 @@ public class Tags {
 
     /**
      * 或者用户身上标签
+     *
      * @param openId openId
      * @return
      */

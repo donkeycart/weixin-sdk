@@ -10,14 +10,14 @@ import org.junit.Test;
 public class SignaturesTest {
 
     @Test
-    public void testCreateJsSignature(){
+    public void testCreateJsSignature() {
         Signature signature = Signatures.defaultSignatures().createJsSignature("1234567890");
         Assert.assertNotNull(signature);
     }
 
 
     @Test
-    public void testCreateAppSignature(){
+    public void testCreateAppSignature() {
         Signature signature = Signatures.defaultSignatures().createAppSignature("1234567890");
         Assert.assertNotNull(signature);
     }

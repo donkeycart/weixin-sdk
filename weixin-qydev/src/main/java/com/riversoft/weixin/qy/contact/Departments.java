@@ -38,8 +38,8 @@ public class Departments {
 
     public Department get(int id) {
         List<Department> list = list();
-        for (Department department: list) {
-            if(id == department.getId() ) {
+        for (Department department : list) {
+            if (id == department.getId()) {
                 return department;
             }
         }

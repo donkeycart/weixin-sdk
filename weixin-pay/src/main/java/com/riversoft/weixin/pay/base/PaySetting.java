@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 /**
  * 商户信息
- *
+ * <p>
  * Created by exizhai on 11/22/2015.
  */
 public class PaySetting {
@@ -40,11 +40,11 @@ public class PaySetting {
     }
 
     private static void loadFromSystemProperties() {
-        if(System.getProperties().contains("payconfig")) {
+        if (System.getProperties().contains("payconfig")) {
             logger.info("loading pay configuration from system properties...");
             String xml = System.getProperties().getProperty("payconfig", "");
             logger.info("payconfig: {}", xml);
-            if(xml == null || "".equals(xml)) {
+            if (xml == null || "".equals(xml)) {
                 return;
             } else {
                 try {

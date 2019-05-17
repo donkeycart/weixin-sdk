@@ -43,6 +43,7 @@ public class Menus {
 
     /**
      * 创建菜单
+     *
      * @param menu
      */
     public void create(Menu menu) {
@@ -54,19 +55,20 @@ public class Menus {
 
     /**
      * 创建个性化菜单，菜单rule不能为空
+     *
      * @param menu
      * @return
      */
     public String createRuleMenu(RuleMenu menu) {
         String url = WxEndpoint.get("url.menu.create.condition");
-        if(menu.getRule() == null) {
+        if (menu.getRule() == null) {
             throw new IllegalArgumentException("个性化菜单rule不能为空");
         }
         String json = JsonMapper.nonEmptyMapper().toJson(menu);
         logger.debug("create rule menu: {}", json);
         String response = wxClient.post(url, json);
         Map<String, Object> map = JsonMapper.defaultMapper().json2Map(response);
-        if(map.containsKey("menuid")) {
+        if (map.containsKey("menuid")) {
             return (String) map.get("menuid");
         } else {
             throw new WxRuntimeException(999, "create rule menu failed");
@@ -83,6 +85,7 @@ public class Menus {
 
     /**
      * 删除个性化菜单
+     *
      * @param menuId
      */
     public void delete(String menuId) {
@@ -94,6 +97,7 @@ public class Menus {
 
     /**
      * 获取default 菜单
+     *
      * @return
      */
     public Menu get() {
@@ -106,6 +110,7 @@ public class Menus {
 
     /**
      * 获取个性化菜单
+     *
      * @return
      */
     public List<RuleMenu> getRuleMenus() {
@@ -119,6 +124,7 @@ public class Menus {
     /**
      * 获取自定义菜单配置
      * 操蛋的微信，JSON太混乱了；本接口拒绝支持 '公众号是在公众平台官网通过网站功能发布菜单'
+     *
      * @return
      */
     public MenuConfig getMenuConfig() {
@@ -130,6 +136,7 @@ public class Menus {
 
     /**
      * 获取匹配的菜单
+     *
      * @param userId 用户openId或者微信号
      * @return
      */
@@ -144,6 +151,7 @@ public class Menus {
 
     /**
      * 获取所有的菜单，包括默认的和个性化的菜单
+     *
      * @return
      */
     public List<Menu> list() {

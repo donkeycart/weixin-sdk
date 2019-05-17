@@ -16,7 +16,7 @@ public class QyWxClientFactory {
     private static QyWxClientFactory instance = null;
     private static ConcurrentHashMap<String, WxClient> wxClients = new ConcurrentHashMap<>();
 
-    private QyWxClientFactory(){
+    private QyWxClientFactory() {
     }
 
     public synchronized static QyWxClientFactory getInstance() {
@@ -36,11 +36,11 @@ public class QyWxClientFactory {
             String clazz = corpSetting.getTokenHolderClass();
 
             AccessTokenHolder accessTokenHolder = null;
-            if(clazz == null || "".equals(clazz)) {
+            if (clazz == null || "".equals(clazz)) {
                 accessTokenHolder = new DefaultAccessTokenHolder(url, corpSetting.getCorpId(), corpSetting.getCorpSecret());
             } else {
                 try {
-                    accessTokenHolder = (AccessTokenHolder)Class.forName(clazz).newInstance();
+                    accessTokenHolder = (AccessTokenHolder) Class.forName(clazz).newInstance();
                     accessTokenHolder.setClientId(corpSetting.getCorpId());
                     accessTokenHolder.setClientSecret(corpSetting.getCorpSecret());
                     accessTokenHolder.setTokenUrl(url);

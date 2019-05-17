@@ -17,7 +17,7 @@ public class DateDeserializer extends JsonDeserializer<Date> {
     @Override
     public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         String date = jsonParser.getText();
-        if(date.length() == 14) {
+        if (date.length() == 14) {
             SimpleDateFormat dataFormat = new SimpleDateFormat("yyyyMMddHHmmss");
             try {
                 return dataFormat.parse(date);

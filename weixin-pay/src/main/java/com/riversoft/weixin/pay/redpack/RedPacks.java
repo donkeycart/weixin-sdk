@@ -89,7 +89,7 @@ public class RedPacks {
     }
 
     private RedPackResponse send(String url, RedPackRequest redPackRequest) {
-        if(redPackRequest.getAppId() == null || "".equals(redPackRequest.getAppId())) {
+        if (redPackRequest.getAppId() == null || "".equals(redPackRequest.getAppId())) {
             redPackRequest.setAppId(paySetting.getAppId());
         }
         SortedMap<String, Object> redPackRequestMap = JsonMapper.defaultMapper().getMapper().convertValue(redPackRequest, SortedMap.class);

@@ -49,7 +49,7 @@ public class VoiceRequest extends XmlMessageHeader {
     public void setFormat(String format) {
         this.format = format;
     }
-    
+
 
     public String getRecognition() {
         return recognition;

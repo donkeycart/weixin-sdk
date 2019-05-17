@@ -22,7 +22,7 @@ public class Forward2CareXmlMessage extends XmlMessageHeader {
         setMsgType(MsgType.transfer_customer_service);
     }
 
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.transInfo = new TransInfo(account);
     }
 
@@ -32,7 +32,7 @@ public class Forward2CareXmlMessage extends XmlMessageHeader {
         @JacksonXmlCData
         private String account;
 
-        public TransInfo(){
+        public TransInfo() {
         }
 
         public TransInfo(String account) {

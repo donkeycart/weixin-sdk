@@ -78,7 +78,7 @@ public class Materials {
 
         String json = JsonMapper.nonEmptyMapper().toJson(mpNews);
         logger.info("add mpnews: {}", json);
-        String response =  wxClient.post(url, json);
+        String response = wxClient.post(url, json);
         Map<String, Object> result = JsonMapper.defaultMapper().json2Map(response);
         if (result.containsKey("media_id")) {
             return result.get("media_id").toString();
@@ -281,6 +281,7 @@ public class Materials {
 
     /**
      * 删除永久素材
+     *
      * @param mediaId
      */
     public void delete(String mediaId) {

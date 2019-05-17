@@ -36,7 +36,7 @@ public class UsersTest {
         int total = userPagination.getTotal();
         List<String> users = userPagination.getUsers();
 
-        for(String openid: users) {
+        for (String openid : users) {
             User user = Users.defaultUsers().get(openid);
             System.out.println(JsonMapper.defaultMapper().toJson(user));
         }
@@ -44,7 +44,7 @@ public class UsersTest {
         String[] openIds = new String[users.size()];
         List<User> list = Users.defaultUsers().batchGet(users.toArray(openIds));
 
-        for(User user: list) {
+        for (User user : list) {
             System.out.println(JsonMapper.defaultMapper().toJson(user));
         }
 
@@ -53,7 +53,6 @@ public class UsersTest {
         userPagination = Users.defaultUsers().list(next);
         Assert.assertNotNull(userPagination);
     }
-
 
 
     @Test

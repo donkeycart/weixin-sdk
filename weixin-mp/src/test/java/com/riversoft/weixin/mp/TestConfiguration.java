@@ -18,13 +18,13 @@ public class TestConfiguration {
 
     private Properties properties;
 
-    private TestConfiguration(){
+    private TestConfiguration() {
         Properties properties = loadProperties(this.getClass().getClassLoader().getResourceAsStream("wx-test.properties"));
         this.properties = properties;
     }
 
-    public static TestConfiguration getInstance(){
-        if(instance == null) {
+    public static TestConfiguration getInstance() {
+        if (instance == null) {
             instance = new TestConfiguration();
         }
         return instance;
@@ -46,7 +46,7 @@ public class TestConfiguration {
         return properties;
     }
 
-    public String testUser(){
+    public String testUser() {
         return properties.getProperty("test.user.openid");
     }
 }

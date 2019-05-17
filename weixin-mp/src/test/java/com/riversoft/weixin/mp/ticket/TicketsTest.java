@@ -14,7 +14,7 @@ import java.io.*;
 public class TicketsTest {
 
     @Test
-    public void testCreateTemporary(){
+    public void testCreateTemporary() {
         Ticket ticket = Tickets.defaultTickets().temporary(600000, 100);
         Assert.assertNotNull(ticket);
 
@@ -28,7 +28,7 @@ public class TicketsTest {
     }
 
     @Test
-    public void testCreatePermInt(){
+    public void testCreatePermInt() {
         Ticket ticket = Tickets.defaultTickets().permanent(123);
         Assert.assertNotNull(ticket);
 
@@ -42,12 +42,12 @@ public class TicketsTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testCreatePermIntTooLong(){
+    public void testCreatePermIntTooLong() {
         Tickets.defaultTickets().permanent(99999999);
     }
 
     @Test
-    public void testCreatePermString(){
+    public void testCreatePermString() {
         Ticket ticket = Tickets.defaultTickets().permanent("abc");
         Assert.assertNotNull(ticket);
 
@@ -61,7 +61,7 @@ public class TicketsTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testCreatePermStringTooLong(){
+    public void testCreatePermStringTooLong() {
         Tickets.defaultTickets().permanent("1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
     }
 }

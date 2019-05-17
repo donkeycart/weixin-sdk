@@ -56,7 +56,7 @@ public class Materials {
         String json = JsonMapper.nonEmptyMapper().toJson(request);
         logger.info("add mpnews: {}", json);
 
-        String response =  wxClient.post(url, json);
+        String response = wxClient.post(url, json);
         Map<String, Object> result = JsonMapper.defaultMapper().json2Map(response);
         if (result.containsKey("media_id")) {
             return result.get("media_id").toString();

@@ -11,6 +11,7 @@ import java.io.InputStream;
 
 /**
  * 二维码工具
+ *
  * @borball on 12/29/2016.
  */
 public class QrCodes {
@@ -35,6 +36,7 @@ public class QrCodes {
 
     /**
      * 获取小程序页面二维码
+     *
      * @param path, path 需要在 app.json 的 pages 中定义
      * @return
      */
@@ -44,6 +46,7 @@ public class QrCodes {
 
     /**
      * 获取小程序页面二维码
+     *
      * @param path, path 需要在 app.json 的 pages 中定义
      * @param size
      * @return

@@ -10,7 +10,7 @@ import org.junit.Test;
 public class JsAPIsTest {
 
     @Test
-    public void testCreateJsAPISignature(){
+    public void testCreateJsAPISignature() {
         JsAPISignature signature = JsAPIs.defaultJsAPIs().createJsAPISignature("http://test.com/test.jsp?abc=123");
         Assert.assertNotNull(signature);
     }

@@ -15,7 +15,7 @@ import java.util.List;
 public class CardsTest {
 
     @Test
-    public void testCreateMember(){
+    public void testCreateMember() {
         Member member = new Member();
         member.setPrerogative("请加班的时候出示");
         member.setAutoActivate(true);
@@ -47,7 +47,7 @@ public class CardsTest {
     }
 
     @Test
-    public void testCreateDiscount(){
+    public void testCreateDiscount() {
         Discount discount = new Discount();
         discount.setDiscount(10);
 
@@ -73,7 +73,7 @@ public class CardsTest {
     }
 
     @Test
-    public void testWhiteList(){
+    public void testWhiteList() {
         List<String> users = new ArrayList<>();
         users.add("o7Tmfs5ezesAcMR-Uu1HrFTm0VPM");
         users.add("o7Tmfs6Bx0Tw6en7idZabXGG9Di8");
@@ -88,19 +88,19 @@ public class CardsTest {
     }
 
     @Test
-    public void testList(){
+    public void testList() {
         List<String> list = Cards.defaultCards().list(0, 10, null);
         Assert.assertNotNull(list);
     }
 
     @Test
-    public void testCount(){
+    public void testCount() {
         int count = Cards.defaultCards().count(null);
         Assert.assertTrue(count > 0);
     }
 
     @Test
-    public void testGet(){
+    public void testGet() {
         //p7Tmfs0e7WUNurXRrEnaagja7SQs
         //p7Tmfs2kxdGp2YN7LX2BMzEYCI2Q
         Card card = Cards.defaultCards().get("p7Tmfs2kxdGp2YN7LX2BMzEYCI2Q");
@@ -110,13 +110,13 @@ public class CardsTest {
     }
 
     @Test
-    public void testGetColors(){
+    public void testGetColors() {
         List<Color> colors = Cards.defaultCards().listColors();
         Assert.assertNotNull(colors);
     }
 
     @Test
-    public void testCreateCash(){
+    public void testCreateCash() {
         Cash cash = new Cash();
         BaseInfo baseInfo = new BaseInfo();
         baseInfo.setLogoUrl("https://mmbiz.qlogo.cn/mmbiz/KicPmFdM4XbnaJkp7SD8rVjyPsoyN4xkuI6luQbMaZqIm48gaMmVojz1wz1MF8m3w2IMfxfnH7ia59UFNphjd0rg/0?wx_fmt=png");
@@ -147,7 +147,7 @@ public class CardsTest {
     }
 
     @Test
-    public void testDate(){
+    public void testDate() {
         Date date = new Date();
         long time = date.getTime();
 

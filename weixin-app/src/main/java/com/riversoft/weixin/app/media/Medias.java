@@ -17,6 +17,7 @@ import java.util.Map;
 
 /**
  * 临时素材管理
+ *
  * @borball on 12/29/2016.
  */
 public class Medias {

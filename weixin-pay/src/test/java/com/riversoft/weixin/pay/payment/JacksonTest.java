@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+
 /**
  * @borball on 12/29/2016.
  */
@@ -14,13 +15,13 @@ public class JacksonTest {
     @Test
     public void testXml2Bean() throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
-        RefundQueryWrapper refundQueryWrapper =  xmlMapper.readValue(getXml(), RefundQueryWrapper.class);
+        RefundQueryWrapper refundQueryWrapper = xmlMapper.readValue(getXml(), RefundQueryWrapper.class);
         Assert.assertNotNull(refundQueryWrapper);
         Assert.assertNotNull(refundQueryWrapper.getRefundQuery());
 
     }
 
-    private String getXml(){
+    private String getXml() {
         return "<xml>\n" +
                 "   <appid><![CDATA[wx2421b1c4370ec43b]]></appid>\n" +
                 "   <mch_id><![CDATA[10000100]]></mch_id>\n" +

@@ -15,7 +15,7 @@ import java.util.List;
 public class GroupsTest {
 
     @Test
-    public void testUpdate(){
+    public void testUpdate() {
         Groups.defaultGroups().move(TestConfiguration.getInstance().testUser(), 0);
 
         int group = Groups.defaultGroups().getUserGroup(TestConfiguration.getInstance().testUser());
@@ -29,7 +29,7 @@ public class GroupsTest {
     }
 
     @Test
-    public void testMove(){
+    public void testMove() {
         Groups.defaultGroups().move(TestConfiguration.getInstance().testUser(), 0);
 
         int group = Groups.defaultGroups().getUserGroup(TestConfiguration.getInstance().testUser());
@@ -43,7 +43,7 @@ public class GroupsTest {
     }
 
     @Test
-    public void testMoves(){
+    public void testMoves() {
         UserPagination userPagination = Users.defaultUsers().list();
         Assert.assertNotNull(userPagination);
         List<String> users = userPagination.getUsers();
@@ -56,7 +56,7 @@ public class GroupsTest {
 
         userPagination = Users.defaultUsers().list();
         users = userPagination.getUsers();
-        for (String u: users) {
+        for (String u : users) {
             User user = Users.defaultUsers().get(u);
             Assert.assertEquals(testGroup.getId(), user.getGroup());
         }
@@ -65,7 +65,7 @@ public class GroupsTest {
 
         userPagination = Users.defaultUsers().list();
         users = userPagination.getUsers();
-        for (String u: users) {
+        for (String u : users) {
             User user = Users.defaultUsers().get(u);
             Assert.assertEquals(0, user.getGroup());
         }

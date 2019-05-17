@@ -21,7 +21,7 @@ public class SHA1 {
     /**
      * 用SHA1算法生成安全签名
      *
-     * @param array     字符串
+     * @param array 字符串
      * @return 安全签名
      * @throws AesException
      */
@@ -29,7 +29,7 @@ public class SHA1 {
         StringBuffer sb = new StringBuffer();
         // 字符串排序
         Arrays.sort(array);
-        for(String item: array) {
+        for (String item : array) {
             sb.append(item);
         }
         return getSHA1(sb.toString());

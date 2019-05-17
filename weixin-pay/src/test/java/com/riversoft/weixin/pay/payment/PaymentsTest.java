@@ -16,7 +16,7 @@ import java.util.Date;
 public class PaymentsTest {
 
     @Test
-    public void testUnifiedOrder(){
+    public void testUnifiedOrder() {
         UnifiedOrderRequest unifiedOrderRequest = new UnifiedOrderRequest();
         unifiedOrderRequest.setBody("牛奶 小号");
         unifiedOrderRequest.setDetail("小号牛奶 鲜奶");
@@ -34,7 +34,7 @@ public class PaymentsTest {
     }
 
     @Test
-    public void testQueryOrder(){
+    public void testQueryOrder() {
         OrderQueryRequest orderQueryRequest = new OrderQueryRequest();
         orderQueryRequest.setTradeNumber("1292063901201605160012300015");
 
@@ -43,13 +43,13 @@ public class PaymentsTest {
     }
 
     @Test
-    public void testCloseOrder(){
+    public void testCloseOrder() {
         BaseResponse response = Payments.defaultPayments().close("1292063901201605160012300015");
         Assert.assertNotNull(response);
     }
 
     @Test
-    public void testDownloadBill(){
+    public void testDownloadBill() {
         String response = Payments.defaultPayments().downloadAllBill(new Date());
         Assert.assertNotNull(response);
     }

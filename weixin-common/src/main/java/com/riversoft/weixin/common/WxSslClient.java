@@ -49,7 +49,8 @@ public class WxSslClient {
         // Allow TLSv1 protocol only
         SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext, new String[]{"TLSv1"}, null, SSLConnectionSocketFactory.getDefaultHostnameVerifier());
 
-        httpClient = HttpClients.custom().setSSLSocketFactory(sslsf).build();;
+        httpClient = HttpClients.custom().setSSLSocketFactory(sslsf).build();
+        ;
 
         requestConfig = RequestConfig.custom().setSocketTimeout(10000).setConnectTimeout(30000).setConnectionRequestTimeout(30000).build();
 

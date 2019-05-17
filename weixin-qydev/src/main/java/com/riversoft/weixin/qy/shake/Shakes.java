@@ -35,6 +35,7 @@ public class Shakes {
 
     /**
      * 获取设备及用户信息
+     *
      * @param ticket
      * @return
      */

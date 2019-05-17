@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * 黑名单管理
+ *
  * @borball on 4/7/2017.
  */
 public class BlackLists {
@@ -39,6 +40,7 @@ public class BlackLists {
 
     /**
      * 拉黑
+     *
      * @param openids
      */
     public void black(List<String> openids) {
@@ -51,6 +53,7 @@ public class BlackLists {
 
     /**
      * 取消拉黑
+     *
      * @param openids
      */
     public void unblack(List<String> openids) {
@@ -63,18 +66,20 @@ public class BlackLists {
 
     /**
      * 获取黑名单列表
+     *
      * @return
      */
-    public UserPagination list(){
+    public UserPagination list() {
         return list("");
     }
 
     /**
      * 获取黑名单列表
+     *
      * @param nextOpenId
      * @return
      */
-    public UserPagination list(String nextOpenId){
+    public UserPagination list(String nextOpenId) {
         String url = WxEndpoint.get("url.blacklist.list");
         Map<String, Object> body = new HashMap<>();
         body.put("begin_openid", nextOpenId);

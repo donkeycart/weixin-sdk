@@ -45,8 +45,8 @@ public class JsAPIs {
         this.wxClient = wxClient;
     }
 
-    private synchronized void getJsAPITicket(){
-        if(jsAPITicket == null || jsAPITicket.expired()) {//double check
+    private synchronized void getJsAPITicket() {
+        if (jsAPITicket == null || jsAPITicket.expired()) {//double check
             String url = WxEndpoint.get("url.jsapi.ticket.get");
             String response = wxClient.get(url);
             this.jsAPITicket = APITicket.fromJson(response);
@@ -54,8 +54,8 @@ public class JsAPIs {
     }
 
 
-    private synchronized void getWxCardAPITicket(){
-        if(wxCardAPITicket == null || wxCardAPITicket.expired()) {//double check
+    private synchronized void getWxCardAPITicket() {
+        if (wxCardAPITicket == null || wxCardAPITicket.expired()) {//double check
             String url = WxEndpoint.get("url.wxcard.jsapi.ticket.get");
             String response = wxClient.get(url);
             this.wxCardAPITicket = APITicket.fromJson(response);
@@ -64,11 +64,12 @@ public class JsAPIs {
 
     /**
      * 创建JsAPI签名
+     *
      * @param url
      * @return
      */
-    public JsAPISignature createJsAPISignature(String url){
-        if(jsAPITicket == null || jsAPITicket.expired()) {
+    public JsAPISignature createJsAPISignature(String url) {
+        if (jsAPITicket == null || jsAPITicket.expired()) {
             getJsAPITicket();
         }
 
@@ -94,11 +95,12 @@ public class JsAPIs {
 
     /**
      * 创建微信卡券JSAPI签名
+     *
      * @param wxCardAPISignature
      * @return
      */
-    public WxCardAPISignature createWxCardJsAPISignature(WxCardAPISignature wxCardAPISignature){
-        if(wxCardAPITicket == null || wxCardAPITicket.expired()) {
+    public WxCardAPISignature createWxCardJsAPISignature(WxCardAPISignature wxCardAPISignature) {
+        if (wxCardAPITicket == null || wxCardAPITicket.expired()) {
             getWxCardAPITicket();
         }
 
@@ -107,7 +109,7 @@ public class JsAPIs {
         String ticket = wxCardAPITicket.getTicket();
 
         List<String> parameters = new ArrayList<>();
-        if(wxCardAPISignature.isChooseCard()) {
+        if (wxCardAPISignature.isChooseCard()) {
             parameters.add(wxClient.getClientId());
         }
 
@@ -116,24 +118,24 @@ public class JsAPIs {
         parameters.add(nonce);
         parameters.add(String.valueOf(timestamp));
 
-        if(!(wxCardAPISignature.getCardType() == null || "".equals(wxCardAPISignature.getCardType()))) {
+        if (!(wxCardAPISignature.getCardType() == null || "".equals(wxCardAPISignature.getCardType()))) {
             parameters.add(wxCardAPISignature.getCardType());
         }
-        if(!(wxCardAPISignature.getCode() == null || "".equals(wxCardAPISignature.getCode()))) {
+        if (!(wxCardAPISignature.getCode() == null || "".equals(wxCardAPISignature.getCode()))) {
             parameters.add(wxCardAPISignature.getCode());
         }
-        if(!(wxCardAPISignature.getBalance() == null || "".equals(wxCardAPISignature.getBalance()))) {
+        if (!(wxCardAPISignature.getBalance() == null || "".equals(wxCardAPISignature.getBalance()))) {
             parameters.add(wxCardAPISignature.getBalance());
         }
-        if(!(wxCardAPISignature.getOpenId() == null || "".equals(wxCardAPISignature.getOpenId()))) {
+        if (!(wxCardAPISignature.getOpenId() == null || "".equals(wxCardAPISignature.getOpenId()))) {
             parameters.add(wxCardAPISignature.getOpenId());
         }
-        if(!(wxCardAPISignature.getLocationId() == null || "".equals(wxCardAPISignature.getLocationId()))) {
+        if (!(wxCardAPISignature.getLocationId() == null || "".equals(wxCardAPISignature.getLocationId()))) {
             parameters.add(wxCardAPISignature.getLocationId());
         }
 
         try {
-            String signature = SHA1.getSHA1((String[])parameters.toArray());
+            String signature = SHA1.getSHA1((String[]) parameters.toArray());
 
             wxCardAPISignature.setNonce(nonce);
             wxCardAPISignature.setTimestamp(timestamp);

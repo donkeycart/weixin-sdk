@@ -22,6 +22,7 @@ import java.util.SortedMap;
 
 /**
  * 支付相关: 小程序或者公众号
+ *
  * @borball on 5/15/2016.
  */
 public class Payments {
@@ -81,6 +82,7 @@ public class Payments {
 
     /**
      * 查询订单状态
+     *
      * @param orderQueryRequest
      * @return
      */
@@ -108,6 +110,7 @@ public class Payments {
 
     /**
      * 关闭订单
+     *
      * @param tradeNumber
      * @return
      */
@@ -136,6 +139,7 @@ public class Payments {
 
     /**
      * check if sign is valid
+     *
      * @param notification
      * @return
      */
@@ -148,6 +152,7 @@ public class Payments {
 
     /**
      * 申请退款
+     *
      * @param refundRequest
      * @return
      */
@@ -175,6 +180,7 @@ public class Payments {
 
     /**
      * 根据transactionId查询退款记录
+     *
      * @param transactionId
      * @return
      */
@@ -186,6 +192,7 @@ public class Payments {
 
     /**
      * 根据tradeNumber查询退款记录
+     *
      * @param tradeNumber
      * @return
      */
@@ -197,6 +204,7 @@ public class Payments {
 
     /**
      * 根据refundNumber查询退款记录
+     *
      * @param refundNumber
      * @return
      */
@@ -208,6 +216,7 @@ public class Payments {
 
     /**
      * 根据refundId查询退款记录
+     *
      * @param refundId
      * @return
      */
@@ -240,32 +249,35 @@ public class Payments {
 
     /**
      * 获取所有订单
+     *
      * @param date
      * @return
      */
-    public String downloadAllBill(Date date){
+    public String downloadAllBill(Date date) {
         return downloadBill(date, "ALL");
     }
 
     /**
      * 获取所有退款订单
+     *
      * @param date
      * @return
      */
-    public String downloadRefundBill(Date date){
+    public String downloadRefundBill(Date date) {
         return downloadBill(date, "REFUND");
     }
 
     /**
      * 获取所有退款订单
+     *
      * @param date
      * @return
      */
-    public String downloadSuccessBill(Date date){
+    public String downloadSuccessBill(Date date) {
         return downloadBill(date, "SUCCESS");
     }
 
-    private String downloadBill(Date date, String type){
+    private String downloadBill(Date date, String type) {
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         BillRequestWrapper billRequestWrapper = new BillRequestWrapper();
         billRequestWrapper.setDate(dateFormat.format(date));

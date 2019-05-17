@@ -9,7 +9,7 @@ import org.junit.Test;
 public class OpenOAuth2sTest {
 
     @Test
-    public void testAuthenticationUrl(){
+    public void testAuthenticationUrl() {
         String url = OpenOAuth2s.defaultOpenOAuth2s().authenticationUrl("http://hostname.com");
         Assert.assertNotNull(url);
     }

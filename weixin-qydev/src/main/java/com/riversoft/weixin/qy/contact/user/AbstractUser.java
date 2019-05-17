@@ -104,7 +104,7 @@ public abstract class AbstractUser extends SimpleUser {
             private String name;
             private String value;
 
-            public Attr(){
+            public Attr() {
             }
 
             public Attr(String name, String value) {

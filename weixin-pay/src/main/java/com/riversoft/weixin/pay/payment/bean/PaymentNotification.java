@@ -149,7 +149,7 @@ public class PaymentNotification extends BaseResponse {
         this.subscribed = "Y".equalsIgnoreCase(isSubscribed);
     }
 
-    public boolean subscribed(){
+    public boolean subscribed() {
         return this.subscribed;
     }
 
@@ -278,7 +278,7 @@ public class PaymentNotification extends BaseResponse {
         return timeEndString;
     }
 
-    protected Map<String,Object> others = new HashMap<>();
+    protected Map<String, Object> others = new HashMap<>();
 
     public Map<String, Object> getOthers() {
         return others;

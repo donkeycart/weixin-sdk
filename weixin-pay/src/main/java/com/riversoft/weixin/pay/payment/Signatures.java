@@ -32,6 +32,7 @@ public class Signatures {
 
     /**
      * 创建供APP调用的签名
+     *
      * @param prepayId
      * @return
      */
@@ -52,6 +53,7 @@ public class Signatures {
 
     /**
      * 创建供公众号或者小程序调用的签名
+     *
      * @param prepayId
      * @return
      */

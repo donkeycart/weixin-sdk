@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import com.google.common.io.Files;
 import com.riversoft.weixin.qy.contact.department.Department;
 import com.riversoft.weixin.qy.contact.job.JobResult;
 import com.riversoft.weixin.qy.contact.user.CreateUser;
@@ -56,7 +55,7 @@ public class JobsTest {
     public void testReplaceDepartments() {
         List<Department> departments = Departments.defaultDepartments().list();
 
-        File tmpDir = Files.createTempDir();
+        File tmpDir = null;
         File groups = new File(tmpDir, "departments.csv");
 
         try {
@@ -103,7 +102,7 @@ public class JobsTest {
     public void testReplaceUsers() {
         List<ReadUser> allUsers = Users.defaultUsers().list();
 
-        File tmpDir = Files.createTempDir();
+        File tmpDir = null;
         File users = new File(tmpDir, "users.csv");
 
         try {

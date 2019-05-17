@@ -13,7 +13,7 @@ import java.util.List;
 public class TagsTest {
 
     @Test
-    public void testCreateUpdateDelete(){
+    public void testCreateUpdateDelete() {
         int size1 = Tags.defaultTags().list().size();
         Tag createdTag = Tags.defaultTags().create("VIP11");
         Assert.assertNotNull(createdTag);
@@ -33,13 +33,13 @@ public class TagsTest {
     }
 
     @Test
-    public void testList(){
+    public void testList() {
         List<Tag> list = Tags.defaultTags().list();
         Assert.assertNotNull(list);
     }
 
     @Test
-    public void testGetUserTag(){
+    public void testGetUserTag() {
         UserPagination userPagination = Users.defaultUsers().list();
         Assert.assertNotNull(userPagination);
         List<Integer> tags = Tags.defaultTags().getUserTags("oELhlt7Q-lRmLbRsPsaKeVX6pqjg");
@@ -47,7 +47,7 @@ public class TagsTest {
     }
 
     @Test
-    public void testTagUsers(){
+    public void testTagUsers() {
         Tag createdTag = Tags.defaultTags().create("VIP11");
 
         UserPagination userPagination = Users.defaultUsers().list();

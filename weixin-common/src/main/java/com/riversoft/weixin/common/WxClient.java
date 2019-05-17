@@ -75,13 +75,13 @@ public class WxClient {
     }
 
     public String get(String url, boolean needToken) {
-        if(needToken) {
+        if (needToken) {
             try {
                 return httpGet(appendAccessToken(url));
             } catch (Exception e) {
-                if(e instanceof WxRuntimeException) {
+                if (e instanceof WxRuntimeException) {
                     WxRuntimeException wxRuntimeException = (WxRuntimeException) e;
-                    if(invalidToken(wxRuntimeException.getCode())) {
+                    if (invalidToken(wxRuntimeException.getCode())) {
                         logger.warn("token invalid: {}, will refresh.", wxRuntimeException.getCode());
                         refreshToken();
                         return httpGet(appendAccessToken(url));
@@ -95,13 +95,13 @@ public class WxClient {
     }
 
     public byte[] getBinary(String url, boolean needToken) {
-        if(needToken) {
+        if (needToken) {
             try {
                 return httpGetBinary(appendAccessToken(url));
             } catch (Exception e) {
-                if(e instanceof WxRuntimeException) {
+                if (e instanceof WxRuntimeException) {
                     WxRuntimeException wxRuntimeException = (WxRuntimeException) e;
-                    if(invalidToken(wxRuntimeException.getCode())) {
+                    if (invalidToken(wxRuntimeException.getCode())) {
                         logger.warn("token invalid: {}, will refresh.", wxRuntimeException.getCode());
                         refreshToken();
                         return httpGetBinary(appendAccessToken(url));
@@ -172,9 +172,9 @@ public class WxClient {
         try {
             return httpDownload(appendAccessToken(url));
         } catch (Exception e) {
-            if(e instanceof WxRuntimeException) {
+            if (e instanceof WxRuntimeException) {
                 WxRuntimeException wxRuntimeException = (WxRuntimeException) e;
-                if(invalidToken(wxRuntimeException.getCode())) {
+                if (invalidToken(wxRuntimeException.getCode())) {
                     logger.warn("token invalid: {}, will refresh.", wxRuntimeException.getCode());
                     refreshToken();
                     return httpDownload(appendAccessToken(url));
@@ -188,9 +188,9 @@ public class WxClient {
         try {
             return httpCopyFromStream(appendAccessToken(url), post);
         } catch (Exception e) {
-            if(e instanceof WxRuntimeException) {
+            if (e instanceof WxRuntimeException) {
                 WxRuntimeException wxRuntimeException = (WxRuntimeException) e;
-                if(invalidToken(wxRuntimeException.getCode())) {
+                if (invalidToken(wxRuntimeException.getCode())) {
                     logger.warn("token invalid: {}, will refresh.", wxRuntimeException.getCode());
                     refreshToken();
                     return httpCopyFromStream(appendAccessToken(url), post);
@@ -202,6 +202,7 @@ public class WxClient {
 
     /**
      * 永久素材下载使用,奇葩的下载方式
+     *
      * @param url
      * @param post
      * @return
@@ -292,9 +293,9 @@ public class WxClient {
         try {
             return httpPost(appendAccessToken(url), content);
         } catch (Exception e) {
-            if(e instanceof WxRuntimeException) {
+            if (e instanceof WxRuntimeException) {
                 WxRuntimeException wxRuntimeException = (WxRuntimeException) e;
-                if(invalidToken(wxRuntimeException.getCode())) {
+                if (invalidToken(wxRuntimeException.getCode())) {
                     logger.warn("token invalid: {}, will refresh.", wxRuntimeException.getCode());
                     refreshToken();
                     return httpPost(appendAccessToken(url), content);
@@ -317,9 +318,9 @@ public class WxClient {
         try {
             return httpPost(appendAccessToken(url), tempFile, form);
         } catch (Exception e) {
-            if(e instanceof WxRuntimeException) {
+            if (e instanceof WxRuntimeException) {
                 WxRuntimeException wxRuntimeException = (WxRuntimeException) e;
-                if(invalidToken(wxRuntimeException.getCode())) {
+                if (invalidToken(wxRuntimeException.getCode())) {
                     logger.warn("token invalid: {}, will refresh.", wxRuntimeException.getCode());
                     refreshToken();
                     return httpPost(appendAccessToken(url), tempFile, form);
@@ -374,8 +375,8 @@ public class WxClient {
         if (file != null) {
             MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
             multipartEntityBuilder.addBinaryBody("media", file).setMode(HttpMultipartMode.RFC6532);
-            if(form != null && !form.isEmpty()) {
-                for(String key: form.keySet()) {
+            if (form != null && !form.isEmpty()) {
+                for (String key : form.keySet()) {
                     multipartEntityBuilder.addTextBody(key, form.get(key));
                 }
             }
@@ -413,7 +414,7 @@ public class WxClient {
 
     private boolean invalidToken(int code) {
         boolean result = code == 42001 || code == 40001 || code == 40014;
-        if(result) {
+        if (result) {
             accessTokenHolder.expireToken();//强制设置为无效
         }
         return result;

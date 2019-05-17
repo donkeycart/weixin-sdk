@@ -7,7 +7,7 @@ public class DefaultAccessTokenHolder extends AccessTokenHolder {
 
     private AccessToken accessToken;
 
-    public DefaultAccessTokenHolder(String tokenUrl, String clientId, String clientSecret){
+    public DefaultAccessTokenHolder(String tokenUrl, String clientId, String clientSecret) {
         super(tokenUrl, clientId, clientSecret);
     }
 

@@ -9,6 +9,7 @@ public class RandomStringGenerator {
 
     /**
      * 获取一定长度的随机字符串
+     *
      * @param length 指定字符串长度
      * @return 一定长度的字符串
      */

@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * @borball on 1/13/2017.
  */
-public class RefundQueryWrapper extends BaseSettings{
+public class RefundQueryWrapper extends BaseSettings {
 
     @JsonUnwrapped
     private RefundQuery refundQuery;
@@ -28,15 +28,17 @@ public class RefundQueryWrapper extends BaseSettings{
         this.refundQuery = refundQuery;
     }
 
-    protected Map<String,Object> others = new HashMap<>();
+    protected Map<String, Object> others = new HashMap<>();
+
     public Map<String, Object> getOthers() {
         return others;
     }
+
     public void setOthers(Map<String, Object> others) {
         this.others = others;
     }
 
-    public void ready(){
+    public void ready() {
         this.getRefundQuery().setOthers(this.getOthers());
     }
 

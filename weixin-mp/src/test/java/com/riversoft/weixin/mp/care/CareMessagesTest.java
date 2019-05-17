@@ -11,12 +11,12 @@ import java.util.List;
 public class CareMessagesTest {
 
     @Test
-    public void testText(){
+    public void testText() {
         CareMessages.defaultCareMessages().voice("oELhlt7Q-lRmLbRsPsaKeVX6pqjg", "4GM9zYltLDSpw6wzGnq0d4Iy5t8R67wA_3mEgIHYi0jUrXWUARyt8cRsFEbmyT0z");
     }
 
     @Test
-    public void testCard(){
+    public void testCard() {
         //o7Tmfs96UDesd920Gzi0jYJPnBzQ
 
         List<String> users = new ArrayList<>();
@@ -30,7 +30,7 @@ public class CareMessagesTest {
         users.add("o7Tmfs7pE8QMVDj9jF--Y74wjUpE");
         users.add("o7Tmfs96UDesd920Gzi0jYJPnBzQ");
 
-        for (String user: users) {
+        for (String user : users) {
             try {
                 CareMessages.defaultCareMessages().card(user, "p7Tmfs2kxdGp2YN7LX2BMzEYCI2Q");
             } catch (Exception e) {

@@ -17,7 +17,7 @@ import java.util.SortedMap;
 public class Bean2MapTest {
 
     @Test
-    public void testBean2Map(){
+    public void testBean2Map() {
         RedPackRequest redPackRequest = new RedPackRequest();
         redPackRequest.setActivityName("test sendSingle red pack");
         redPackRequest.setAmount(1);

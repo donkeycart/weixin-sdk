@@ -9,6 +9,7 @@ public class MD5 {
 
     /**
      * MD5编码
+     *
      * @param origin 原始字符串
      * @return 经过MD5加密之后的结果
      */

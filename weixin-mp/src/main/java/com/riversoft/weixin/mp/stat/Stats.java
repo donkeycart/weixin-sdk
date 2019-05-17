@@ -41,12 +41,13 @@ public class Stats {
 
     /**
      * 获取用户增减数据
+     *
      * @param start
      * @param end
      * @return
      */
     public List<UserSummary> getUserSummary(Date start, Date end) {
-        if(diffThan6Days(start, end)) {
+        if (diffThan6Days(start, end)) {
             throw new IllegalArgumentException("start和end相差不能超过6天以上");
         }
 
@@ -63,6 +64,7 @@ public class Stats {
 
     /**
      * 获取用户增减数据
+     *
      * @param start
      * @return
      */
@@ -72,12 +74,13 @@ public class Stats {
 
     /**
      * 获取累计用户数据
+     *
      * @param start
      * @param end
      * @return
      */
     public List<UserCumulative> getUserCumulative(Date start, Date end) {
-        if(diffThan6Days(start, end)) {
+        if (diffThan6Days(start, end)) {
             throw new IllegalArgumentException("start和end相差不能超过6天以上");
         }
 
@@ -112,6 +115,7 @@ public class Stats {
 
     /**
      * 获取累计用户数据
+     *
      * @param start
      * @return
      */

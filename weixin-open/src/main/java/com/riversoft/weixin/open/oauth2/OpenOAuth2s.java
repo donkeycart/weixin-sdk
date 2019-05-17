@@ -37,6 +37,7 @@ public class OpenOAuth2s {
 
     /**
      * 生成授权链接, 默认scope: snsapi_base
+     *
      * @param redirect 授权后重定向的回调链接地址，请使用urlencode对链接进行处理
      * @return
      */
@@ -46,8 +47,9 @@ public class OpenOAuth2s {
 
     /**
      * 生成授权链接
+     *
      * @param redirect 授权后重定向的回调链接地址，请使用urlencode对链接进行处理
-     * @param scope 应用授权作用域，snsapi_base or snsapi_userinfo
+     * @param scope    应用授权作用域，snsapi_base or snsapi_userinfo
      * @return
      */
     public String authenticationUrl(String redirect, String scope) {
@@ -56,9 +58,10 @@ public class OpenOAuth2s {
 
     /**
      * 生成授权链接
+     *
      * @param redirect 授权后重定向的回调链接地址，请使用urlencode对链接进行处理
-     * @param scope 应用授权作用域，snsapi_base or snsapi_userinfo
-     * @param state 重定向后会带上state参数，开发者可以填写a-zA-Z0-9的参数值，最多128字节
+     * @param scope    应用授权作用域，snsapi_base or snsapi_userinfo
+     * @param state    重定向后会带上state参数，开发者可以填写a-zA-Z0-9的参数值，最多128字节
      * @return
      */
     public String authenticationUrl(String redirect, String scope, String state) {
@@ -73,6 +76,7 @@ public class OpenOAuth2s {
 
     /**
      * 获取access token
+     *
      * @param code
      * @return
      */
@@ -86,6 +90,7 @@ public class OpenOAuth2s {
 
     /**
      * 刷新access token
+     *
      * @param refreshToken
      * @return
      */
@@ -99,6 +104,7 @@ public class OpenOAuth2s {
 
     /**
      * 获取用户信息
+     *
      * @param accessToken
      * @param openId
      * @return
@@ -109,6 +115,7 @@ public class OpenOAuth2s {
 
     /**
      * 获取用户信息
+     *
      * @param accessToken
      * @param openId
      * @param lang

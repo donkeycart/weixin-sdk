@@ -15,7 +15,7 @@ public class RefundQueryTest {
     @Test
     public void testXml2Bean() throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
-        RefundQueryWrapper refundQueryWrapper =  xmlMapper.readValue(getXml(), RefundQueryWrapper.class);
+        RefundQueryWrapper refundQueryWrapper = xmlMapper.readValue(getXml(), RefundQueryWrapper.class);
         Assert.assertNotNull(refundQueryWrapper);
         Assert.assertNotNull(refundQueryWrapper.getRefundQuery());
         refundQueryWrapper.ready();
@@ -23,7 +23,7 @@ public class RefundQueryTest {
         Assert.assertEquals(2, refundQueryWrapper.getRefundQuery().getRefunds().size());
     }
 
-    private String getXml(){
+    private String getXml() {
         return "<xml>\n" +
                 "   <appid><![CDATA[wx2421b1c4370ec43b]]></appid>\n" +
                 "   <mch_id><![CDATA[10000100]]></mch_id>\n" +

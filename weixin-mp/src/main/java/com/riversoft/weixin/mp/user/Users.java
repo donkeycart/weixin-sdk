@@ -66,15 +66,16 @@ public class Users {
 
     /**
      * 批量获取用户信息，默认lang为zh_CN, 一次最多100个
+     *
      * @param openIds
      * @return
      */
     public List<User> batchGet(String... openIds) {
-        if(openIds.length > 100) {
+        if (openIds.length > 100) {
             throw new WxRuntimeException(999, "批量获取用户基本信息。最多支持一次拉取100条");
         }
         List<Map<String, String>> list = new ArrayList<>();
-        for (String openId: openIds) {
+        for (String openId : openIds) {
             Map<String, String> map = new HashMap<>();
             map.put("openid", openId);
             map.put("lang", "zh_CN");
@@ -85,11 +86,12 @@ public class Users {
 
     /**
      * 批量获取用户信息，一次最多100个
+     *
      * @param openIds
      * @return
      */
     public List<User> batchGet(List<Map<String, String>> openIds) {
-        if(openIds.size() > 100) {
+        if (openIds.size() > 100) {
             throw new WxRuntimeException(999, "批量获取用户基本信息。最多支持一次拉取100条");
         }
 

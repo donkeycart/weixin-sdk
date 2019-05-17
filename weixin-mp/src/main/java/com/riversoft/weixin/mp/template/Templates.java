@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * 模板消息API
- *
+ * <p>
  * Created by exizhai on 12/16/2015.
  */
 public class Templates {
@@ -40,7 +40,8 @@ public class Templates {
 
     /**
      * 设置所属行业
-     * @param primary 众号模板消息所属行业编号1(主业)
+     *
+     * @param primary   众号模板消息所属行业编号1(主业)
      * @param secondary 众号模板消息所属行业编号2(副业)
      */
     public void setIndustries(String primary, String secondary) {
@@ -66,7 +67,8 @@ public class Templates {
     /**
      * 获取模板, 容易被微信的文档误导，这里其实是获取模板到服务号的管理端，并不单纯是获取ID那么简单
      * 对于相同的code，每调用一次微信后台会生成一条新的记录
-     * @param code  模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式
+     *
+     * @param code 模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式
      * @return
      */
     public String fetch(String code) {
@@ -77,7 +79,7 @@ public class Templates {
         String response = wxClient.post(url, json);
         Map<String, Object> result = JsonMapper.defaultMapper().json2Map(response);
 
-        if(result.containsKey("template_id")) {
+        if (result.containsKey("template_id")) {
             return result.get("template_id").toString();
         } else {
             throw new WxRuntimeException(999, "fetch template id failed.");
@@ -86,9 +88,10 @@ public class Templates {
 
     /**
      * 获取所有的模板
+     *
      * @return
      */
-    public List<Template> list(){
+    public List<Template> list() {
         String url = WxEndpoint.get("url.template.list");
         logger.debug("template message, list templates.");
         String response = wxClient.get(url);
@@ -98,6 +101,7 @@ public class Templates {
 
     /**
      * 删除模板
+     *
      * @param templateId
      */
     public void delete(String templateId) {
@@ -122,6 +126,7 @@ public class Templates {
 
     /**
      * 发送模板消息
+     *
      * @param toUser
      * @param templateId
      * @param miniProgram
@@ -134,7 +139,7 @@ public class Templates {
 
     /**
      * 发送模板消息
-     *
+     * <p>
      * url和miniprogram都是非必填字段，若都不传则模板无跳转；
      * 若都传，会优先跳转至小程序。
      * 开发者可根据实际需要选择其中一种跳转方式即可。
@@ -153,10 +158,10 @@ public class Templates {
         messageWrapper.setToUser(toUser);
         messageWrapper.setTemplateId(templateId);
 
-        if(url != null) {
+        if (url != null) {
             messageWrapper.setUrl(url);
         }
-        if(miniProgram != null) {
+        if (miniProgram != null) {
             messageWrapper.setMiniProgram(miniProgram);
         }
         messageWrapper.setData(messages);
@@ -167,8 +172,8 @@ public class Templates {
         String response = wxClient.post(sendUrl, json);
         Map<String, Object> result = JsonMapper.defaultMapper().json2Map(response);
 
-        if(result.containsKey("msgid")) {
-            return ((Number)result.get("msgid")).longValue();
+        if (result.containsKey("msgid")) {
+            return ((Number) result.get("msgid")).longValue();
         } else {
             throw new WxRuntimeException(999, "send template message failed.");
         }

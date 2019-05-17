@@ -12,11 +12,11 @@ import com.riversoft.weixin.app.base.AppSetting;
  */
 public class UsersTest {
 
-	@Test
-	@Ignore
-	public void testCode2Session() {
-		SessionKey sessionKey = Users.with(new AppSetting("appid", "screctkey"))
-				.code2Session("011RedXY1NegvX0eLWXY1vVfXY1RedXu");
-		assertNotNull(sessionKey);
-	}
+    @Test
+    @Ignore
+    public void testCode2Session() {
+        SessionKey sessionKey = Users.with(new AppSetting("appid", "screctkey"))
+                .code2Session("011RedXY1NegvX0eLWXY1vVfXY1RedXu");
+        assertNotNull(sessionKey);
+    }
 }

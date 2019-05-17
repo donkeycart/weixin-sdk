@@ -11,7 +11,7 @@ import java.util.List;
 public class OrdersTest {
 
     @Test
-    public void testQuery(){
+    public void testQuery() {
         Calendar end = Calendar.getInstance();
 
         Calendar start = Calendar.getInstance();
@@ -21,7 +21,7 @@ public class OrdersTest {
 
 
     @Test
-    public void testGet(){
+    public void testGet() {
         Order order = Orders.defaultOrders().get("13215171060853012180");
     }
 

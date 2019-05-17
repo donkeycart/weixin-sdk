@@ -13,6 +13,7 @@ import java.util.Map;
 
 /**
  * 客服消息
+ *
  * @borball on 12/29/2016.
  */
 public class CareMessages {

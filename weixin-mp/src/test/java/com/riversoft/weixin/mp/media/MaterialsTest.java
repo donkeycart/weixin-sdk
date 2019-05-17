@@ -50,7 +50,7 @@ public class MaterialsTest {
     }
 
     @Test
-    public void testAddMpNews(){
+    public void testAddMpNews() {
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("media/image.png");
         String mediaId = Materials.defaultMaterials().addImage(inputStream, "image.png").getMediaId();
 

@@ -26,8 +26,8 @@ public class MessageDecryption {
     /**
      * 构造函数
      *
-     * @param token  公众平台上，开发者设置的token
-     * @param aes    公众平台上，开发者设置的EncodingAESKey
+     * @param token    公众平台上，开发者设置的token
+     * @param aes      公众平台上，开发者设置的EncodingAESKey
      * @param clientId 企业的corpId或者服务号的appId
      * @throws AesException 执行失败，请查看该异常的错误码和具体的错误信息
      */

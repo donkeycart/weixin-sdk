@@ -5,7 +5,7 @@
     <groupId>cn.com.riversoft</groupId>
     <artifactId>weixin-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.8-SNAPSHOT</version>
+    <version>0.9.7.B</version>
     <name>weixin sdk pom</name>
     <description>weixin SDK POM</description>
     <url>https://github.com/borball/weixin-sdk</url>
@@ -55,7 +55,7 @@
         <url>https://github.com/borball/weixin-sdk</url>
         <connection>scm:git:git@github.com:borball/weixin-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:borball/weixin-sdk.git</developerConnection>
-  </scm>
+    </scm>
 
     <issueManagement>
         <url>https://github.com/borball/weixin-sdk/issues</url>
@@ -148,14 +148,13 @@
             </build>
         </profile>
         <profile>
-          <id>java8-doclint-disabled</id>
-          <activation>
-            <jdk>[1.8,)</jdk>
-          </activation>
-          <properties>
-            <javadoc.opts>-Xdoclint:none</javadoc.opts>
-          </properties>
+            <id>java8-doclint-disabled</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
         </profile>
     </profiles>
-
 </project>

@@ -53,7 +53,7 @@ public class Sessions {
         Map<String, String> request = new HashMap<>();
         request.put("kf_account", care);
         request.put("openid", openId);
-        if(!(text == null || "".equals(text))) {
+        if (!(text == null || "".equals(text))) {
             request.put("text", text);
         }
 
@@ -74,7 +74,7 @@ public class Sessions {
         Map<String, String> request = new HashMap<>();
         request.put("kf_account", care);
         request.put("openid", openId);
-        if(!(text == null || "".equals(text))) {
+        if (!(text == null || "".equals(text))) {
             request.put("text", text);
         }
 

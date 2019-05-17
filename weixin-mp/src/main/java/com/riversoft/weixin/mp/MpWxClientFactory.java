@@ -36,11 +36,11 @@ public class MpWxClientFactory {
             String clazz = appSetting.getTokenHolderClass();
 
             AccessTokenHolder accessTokenHolder = null;
-            if(clazz == null || "".equals(clazz)) {
+            if (clazz == null || "".equals(clazz)) {
                 accessTokenHolder = new DefaultAccessTokenHolder(url, appSetting.getAppId(), appSetting.getSecret());
             } else {
                 try {
-                    accessTokenHolder = (AccessTokenHolder)Class.forName(clazz).newInstance();
+                    accessTokenHolder = (AccessTokenHolder) Class.forName(clazz).newInstance();
                     accessTokenHolder.setClientId(appSetting.getAppId());
                     accessTokenHolder.setClientSecret(appSetting.getSecret());
                     accessTokenHolder.setTokenUrl(url);

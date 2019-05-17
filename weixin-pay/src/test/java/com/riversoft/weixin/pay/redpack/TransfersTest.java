@@ -10,10 +10,10 @@ import org.junit.Test;
 public class TransfersTest {
 
     @Test
-    public void testTransfer(){
+    public void testTransfer() {
         String[] users = {"oELhlt7Q-lRmLbRsPsaKeVX6pqjg"};
         int i = 5;
-        for(String user: users) {
+        for (String user : users) {
             TransferRequest transferRequest = new TransferRequest();
             transferRequest.setAmount(100);
             transferRequest.setCheckName("NO_CHECK");

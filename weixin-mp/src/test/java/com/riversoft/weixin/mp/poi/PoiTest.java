@@ -14,13 +14,13 @@ import java.util.List;
 public class PoiTest {
 
     @Test
-    public void testList(){
+    public void testList() {
         List<Business> list = Pois.defaultPois().list(0, 10);
         Assert.assertNotNull(list);
     }
 
     @Test
-    public void testFormat(){
+    public void testFormat() {
         Pois.BusinessListWrapper wrapper = new Pois.BusinessListWrapper();
         List<Pois.BusinessWrapper> businesses = new ArrayList<>();
         Business business = new Business();
