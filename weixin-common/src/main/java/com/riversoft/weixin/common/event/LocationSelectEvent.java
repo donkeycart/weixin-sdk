@@ -2,10 +2,14 @@ package com.riversoft.weixin.common.event;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by exizhai on 11/14/2015.
  */
+@Getter
+@Setter
 public class LocationSelectEvent extends EventRequest {
 
     @JsonProperty("EventKey")
@@ -15,23 +19,8 @@ public class LocationSelectEvent extends EventRequest {
     @JsonProperty("SendLocationInfo")
     private SendLocationInfo sendLocationInfo;
 
-    public String getEventKey() {
-        return eventKey;
-    }
-
-    public void setEventKey(String eventKey) {
-        this.eventKey = eventKey;
-    }
-
-    public SendLocationInfo getSendLocationInfo() {
-        return sendLocationInfo;
-    }
-
-    public void setSendLocationInfo(SendLocationInfo sendLocationInfo) {
-        this.sendLocationInfo = sendLocationInfo;
-    }
-
-
+    @Getter
+    @Setter
     public static class SendLocationInfo {
 
         @JsonProperty("Location_X")
@@ -54,44 +43,5 @@ public class LocationSelectEvent extends EventRequest {
         @JacksonXmlCData
         private String poiName;
 
-        public String getX() {
-            return x;
-        }
-
-        public void setX(String x) {
-            this.x = x;
-        }
-
-        public String getY() {
-            return y;
-        }
-
-        public void setY(String y) {
-            this.y = y;
-        }
-
-        public String getScale() {
-            return scale;
-        }
-
-        public void setScale(String scale) {
-            this.scale = scale;
-        }
-
-        public String getLabel() {
-            return label;
-        }
-
-        public void setLabel(String label) {
-            this.label = label;
-        }
-
-        public String getPoiName() {
-            return poiName;
-        }
-
-        public void setPoiName(String poiName) {
-            this.poiName = poiName;
-        }
     }
 }

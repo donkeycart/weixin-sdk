@@ -1,48 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>weixin-parent</artifactId>
-		<groupId>cn.com.riversoft</groupId>
-		<version>0.9.7.B</version>
-		<relativePath>../weixin-parent/</relativePath>
-	</parent>
+    <parent>
+        <artifactId>weixin-parent</artifactId>
+        <groupId>cn.com.riversoft</groupId>
+        <version>0.9.7.B</version>
+        <relativePath>../weixin-parent/</relativePath>
+    </parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<name>weixin sdk mp</name>
-	<artifactId>weixin-mp</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <name>weixin sdk mp</name>
+    <artifactId>weixin-mp</artifactId>
 
-	<dependencies>
-		<dependency>
-			<groupId>cn.com.riversoft</groupId>
-			<artifactId>weixin-common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.woodstox</groupId>
-			<artifactId>woodstox-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>cn.com.riversoft</groupId>
+            <artifactId>weixin-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.woodstox</groupId>
+            <artifactId>woodstox-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
+    <build>
+        <plugins>
             <!-- source attach plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

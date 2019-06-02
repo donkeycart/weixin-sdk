@@ -1,8 +1,13 @@
 package com.riversoft.weixin.common.jsapi;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @borball on 2/28/2017.
  */
+@Getter
+@Setter
 public class WxCardAPISignature {
 
     /**
@@ -48,83 +53,4 @@ public class WxCardAPISignature {
 
     private String signature;
 
-    public boolean isChooseCard() {
-        return chooseCard;
-    }
-
-    public void setChooseCard(boolean chooseCard) {
-        this.chooseCard = chooseCard;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getNonce() {
-        return nonce;
-    }
-
-    public void setNonce(String nonce) {
-        this.nonce = nonce;
-    }
-
-    public String getCardId() {
-        return cardId;
-    }
-
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
-    }
-
-    public String getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
-    }
-
-    public String getCardType() {
-        return cardType;
-    }
-
-    public void setCardType(String cardType) {
-        this.cardType = cardType;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getBalance() {
-        return balance;
-    }
-
-    public void setBalance(String balance) {
-        this.balance = balance;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
 }

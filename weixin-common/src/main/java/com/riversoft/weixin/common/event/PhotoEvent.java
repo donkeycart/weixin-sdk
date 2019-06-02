@@ -2,12 +2,16 @@ package com.riversoft.weixin.common.event;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * Created by exizhai on 11/14/2015.
  */
+@Getter
+@Setter
 public class PhotoEvent extends EventRequest {
 
     @JsonProperty("EventKey")
@@ -17,22 +21,8 @@ public class PhotoEvent extends EventRequest {
     @JsonProperty("SendPicsInfo")
     private SendPicsInfo sendPicsInfo;
 
-    public String getEventKey() {
-        return eventKey;
-    }
-
-    public void setEventKey(String eventKey) {
-        this.eventKey = eventKey;
-    }
-
-    public SendPicsInfo getSendPicsInfo() {
-        return sendPicsInfo;
-    }
-
-    public void setSendPicsInfo(SendPicsInfo sendPicsInfo) {
-        this.sendPicsInfo = sendPicsInfo;
-    }
-
+    @Getter
+    @Setter
     public static class SendPicsInfo {
 
         @JsonProperty("Count")
@@ -43,22 +33,8 @@ public class PhotoEvent extends EventRequest {
         public SendPicsInfo() {
         }
 
-        public int getCount() {
-            return count;
-        }
-
-        public void setCount(int count) {
-            this.count = count;
-        }
-
-        public List<Item> getItems() {
-            return items;
-        }
-
-        public void setItems(List<Item> items) {
-            this.items = items;
-        }
-
+        @Getter
+        @Setter
         public static class Item {
 
             @JsonProperty("PicMd5Sum")
@@ -68,13 +44,6 @@ public class PhotoEvent extends EventRequest {
             public Item() {
             }
 
-            public String getPicMd5Sum() {
-                return picMd5Sum;
-            }
-
-            public void setPicMd5Sum(String picMd5Sum) {
-                this.picMd5Sum = picMd5Sum;
-            }
         }
     }
 

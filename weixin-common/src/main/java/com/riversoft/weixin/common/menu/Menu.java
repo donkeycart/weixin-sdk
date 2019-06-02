@@ -17,12 +17,12 @@ import lombok.Setter;
 @Setter
 public class Menu implements Serializable {
 
-	@JsonProperty("button")
-	private List<MenuItem> menus = new ArrayList<>();
+    @JsonProperty("button")
+    private List<MenuItem> menus = new ArrayList<>();
 
-	public Menu add(MenuItem menuItem) {
-		this.menus.add(menuItem);
-		return this;
-	}
+    public Menu add(MenuItem menuItem) {
+        this.menus.add(menuItem);
+        return this;
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.riversoft.weixin.mp.media;
 
+import com.alibaba.fastjson.JSON;
 import com.riversoft.weixin.common.WxClient;
 import com.riversoft.weixin.common.exception.WxRuntimeException;
 import com.riversoft.weixin.common.media.Media;
@@ -8,6 +9,7 @@ import com.riversoft.weixin.common.util.JsonMapper;
 import com.riversoft.weixin.mp.MpWxClientFactory;
 import com.riversoft.weixin.mp.base.AppSetting;
 import com.riversoft.weixin.mp.base.WxEndpoint;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,9 +28,8 @@ import java.util.Map;
  * <p/>
  * Created by exizhai on 11/12/2015.
  */
+@Slf4j
 public class Medias {
-
-    private static Logger logger = LoggerFactory.getLogger(Medias.class);
 
     private WxClient wxClient;
 
@@ -60,13 +61,13 @@ public class Medias {
         }
         String url = WxEndpoint.get("url.media.upload");
         String response = wxClient.post(String.format(url, type.name()), inputStream, fileName);
-        logger.debug("upload media response: {}", response);
+        log.debug("upload media response: {}", response);
 
-        Map<String, Object> result = JsonMapper.defaultMapper().json2Map(response);
+        Map<String, Object> result = JSON.parseObject(response, Map.class);
         if (result.containsKey("media_id")) {
-            return JsonMapper.defaultMapper().fromJson(response, Media.class);
+            return JSON.parseObject(response, Media.class);
         } else {
-            logger.warn("media upload failed: {}", response);
+            log.warn("media upload failed: {}", response);
             throw new WxRuntimeException(999, response);
         }
     }

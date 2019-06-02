@@ -2,10 +2,14 @@ package com.riversoft.weixin.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.riversoft.weixin.common.util.JsonMapper;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @borball on 8/14/2016.
  */
+@Setter
+@Getter
 public class AccessToken {
 
     @JsonProperty("access_token")
@@ -20,25 +24,9 @@ public class AccessToken {
         return JsonMapper.defaultMapper().fromJson(json, AccessToken.class);
     }
 
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public long getExpiresIn() {
-        return expiresIn;
-    }
-
     public void setExpiresIn(long expiresIn) {
         this.expiresIn = expiresIn;
         this.expiresTill = System.currentTimeMillis() + (expiresIn * 1000) - 300000;
-    }
-
-    public long getExpiresTill() {
-        return expiresTill;
     }
 
     public boolean expired() {

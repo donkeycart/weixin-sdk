@@ -2,6 +2,7 @@ package com.riversoft.weixin.common;
 
 import com.riversoft.weixin.common.exception.WxError;
 import com.riversoft.weixin.common.exception.WxRuntimeException;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +14,8 @@ import java.io.IOException;
  *
  * @borball on 8/14/2016.
  */
+@Slf4j
 public abstract class AccessTokenHolder {
-
-    private static Logger logger = LoggerFactory.getLogger(AccessTokenHolder.class);
 
     private String clientId;
     private String clientSecret;
@@ -42,7 +42,7 @@ public abstract class AccessTokenHolder {
     }
 
     protected String fetchAccessToken() {
-        logger.debug("[{}]:fetching a new access token.", clientId);
+        log.debug("[{}]:fetching a new access token.", clientId);
 
         String url = String.format(this.tokenUrl, this.clientId, this.clientSecret);
 
@@ -52,17 +52,20 @@ public abstract class AccessTokenHolder {
 
         try (Response response = call.execute()) {
             if (response.isSuccessful()) {
-                WxError wxError = WxError.fromJson(response.body().toString());
+
+                String result = response.body().string();
+
+                WxError wxError = WxError.fromJson(result);
                 if (wxError.getErrorCode() != 0) {
                     throw new WxRuntimeException(wxError);
                 }
-                return response.body().toString();
+                return result;
             }
+            throw new WxRuntimeException(999, response.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
+            throw new WxRuntimeException(999, e.getMessage());
         }
-        return null;
-
     }
 
     /**

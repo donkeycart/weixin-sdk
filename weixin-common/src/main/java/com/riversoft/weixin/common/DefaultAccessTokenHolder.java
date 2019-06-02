@@ -33,5 +33,4 @@ public class DefaultAccessTokenHolder extends AccessTokenHolder {
         accessToken.setExpiresIn(-30);//强制设置为无效
     }
 
-
 }

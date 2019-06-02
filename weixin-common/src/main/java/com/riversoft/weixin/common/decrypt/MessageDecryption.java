@@ -111,7 +111,7 @@ public class MessageDecryption {
             byte[] encrypted = cipher.doFinal(unencrypted);
 
             // 使用BASE64对加密后的字符串进行编码
-            return  new String(Base64.getDecoder().decode(encrypted), StandardCharsets.UTF_8);
+            return new String(Base64.getDecoder().decode(encrypted), StandardCharsets.UTF_8);
         } catch (Exception e) {
             log.error("MessageDecryption encrypt failed.", e);
             throw new AesException(AesException.EncryptAESError);

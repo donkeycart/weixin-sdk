@@ -10,12 +10,12 @@ import com.riversoft.weixin.common.util.MD5;
  */
 public class SignatureUtil {
 
-	public static String sign(Map<String, Object> map, String key) {
+    public static String sign(Map<String, Object> map, String key) {
 
-		StringJoiner sj = new StringJoiner("&");
-		map.forEach((k, v) -> {
-			sj.add(k + "=" + v);
-		});
-		return MD5.md5Hex(sj + "&key=" + key).toUpperCase();
-	}
+        StringJoiner sj = new StringJoiner("&");
+        map.forEach((k, v) -> {
+            sj.add(k + "=" + v);
+        });
+        return MD5.md5Hex(sj + "&key=" + key).toUpperCase();
+    }
 }

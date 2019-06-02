@@ -16,19 +16,19 @@ import java.util.List;
 @Getter
 public class MpNews implements Serializable {
 
-	private List<MpArticle> articles = new ArrayList<>();
+    private List<MpArticle> articles = new ArrayList<>();
 
-	@JsonProperty("news_item")
-	public void setItems(List<MpArticle> articles) {
-		this.articles = articles;
-	}
+    @JsonProperty("news_item")
+    public void setItems(List<MpArticle> articles) {
+        this.articles = articles;
+    }
 
-	public void add(MpArticle mpArticle) {
-		this.getArticles().add(mpArticle);
-	}
+    public void add(MpArticle mpArticle) {
+        this.getArticles().add(mpArticle);
+    }
 
-	public MpNews article(MpArticle article) {
-		this.getArticles().add(article);
-		return this;
-	}
+    public MpNews article(MpArticle article) {
+        this.getArticles().add(article);
+        return this;
+    }
 }
