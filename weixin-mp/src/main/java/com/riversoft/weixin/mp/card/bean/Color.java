@@ -1,26 +1,15 @@
 package com.riversoft.weixin.mp.card.bean;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by exizhai on 11/30/2015.
  */
+@Getter
+@Setter
 public class Color {
 
     private String name;
     private String value;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

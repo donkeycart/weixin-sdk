@@ -1,20 +1,25 @@
 package com.riversoft.weixin.mp.base;
 
-import com.riversoft.weixin.common.exception.WxRuntimeException;
-import com.riversoft.weixin.common.util.XmlObjectMapper;
-import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
+
+import org.apache.commons.io.IOUtils;
+
+import com.riversoft.weixin.common.exception.WxRuntimeException;
+import com.riversoft.weixin.common.util.XmlObjectMapper;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by exizhai on 9/26/2015.
  */
+@Slf4j
+@Getter
+@Setter
 public class AppSetting {
 
-    private static Logger logger = LoggerFactory.getLogger(AppSetting.class);
 
     private static AppSetting appSetting = null;
 
@@ -53,9 +58,9 @@ public class AppSetting {
 
     private static void loadFromSystemProperties() {
         if (System.getProperties().contains("mpconfig")) {
-            logger.info("loading mp configuration from system properties...");
+            log.info("loading mp configuration from system properties...");
             String xml = System.getProperties().getProperty("mpconfig", "");
-            logger.info("mpconfig: {}", xml);
+            log.info("mpconfig: {}", xml);
             if (xml == null || "".equals(xml)) {
                 return;
             } else {
@@ -82,48 +87,8 @@ public class AppSetting {
                 appSetting = setting;
             }
         } catch (IOException e) {
-            logger.error("read settings from wx-mp-settings-test.xml or wx-mp-settings.xml failed:", e);
+            log.error("read settings from wx-mp-settings-test.xml or wx-mp-settings.xml failed:", e);
         }
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getAesKey() {
-        return aesKey;
-    }
-
-    public void setAesKey(String aesKey) {
-        this.aesKey = aesKey;
-    }
-
-    public String getTokenHolderClass() {
-        return tokenHolderClass;
-    }
-
-    public void setTokenHolderClass(String tokenHolderClass) {
-        this.tokenHolderClass = tokenHolderClass;
     }
 
     @Override

@@ -6,6 +6,9 @@ import com.riversoft.weixin.common.util.JsonMapper;
 import com.riversoft.weixin.mp.MpWxClientFactory;
 import com.riversoft.weixin.mp.base.AppSetting;
 import com.riversoft.weixin.mp.base.WxEndpoint;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,9 +17,8 @@ import java.util.Map;
 /**
  * Created by exizhai on 12/1/2015.
  */
+@Slf4j
 public class Urls {
-
-    private static Logger logger = LoggerFactory.getLogger(Urls.class);
 
     private WxClient wxClient;
 
@@ -44,7 +46,7 @@ public class Urls {
         String url = WxEndpoint.get("url.url.toshort");
         String json = String.format("{\"action\":\"long2short\",\"long_url\":\"%s\"}", longUrl);
 
-        logger.debug("long url to short: {}", json);
+        log.debug("long url to short: {}", json);
         String response = wxClient.post(url, json);
 
         Map<String, Object> result = JsonMapper.defaultMapper().json2Map(response);

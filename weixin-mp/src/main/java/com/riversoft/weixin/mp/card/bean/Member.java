@@ -1,11 +1,15 @@
 package com.riversoft.weixin.mp.card.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 会员卡
  * Created by exizhai on 11/27/2015.
  */
+@Getter
+@Setter
 public class Member extends AbstractCard {
 
     /**
@@ -114,150 +118,9 @@ public class Member extends AbstractCard {
     @JsonProperty("discount")
     private int discount;
 
-    public String getPrerogative() {
-        return prerogative;
-    }
 
-    public void setPrerogative(String prerogative) {
-        this.prerogative = prerogative;
-    }
-
-    public boolean isAutoActivate() {
-        return autoActivate;
-    }
-
-    public void setAutoActivate(boolean autoActivate) {
-        this.autoActivate = autoActivate;
-    }
-
-    public boolean isWxActivate() {
-        return wxActivate;
-    }
-
-    public void setWxActivate(boolean wxActivate) {
-        this.wxActivate = wxActivate;
-    }
-
-    public boolean isSupplyBonus() {
-        return supplyBonus;
-    }
-
-    public void setSupplyBonus(boolean supplyBonus) {
-        this.supplyBonus = supplyBonus;
-    }
-
-    public String getBonusUrl() {
-        return bonusUrl;
-    }
-
-    public void setBonusUrl(String bonusUrl) {
-        this.bonusUrl = bonusUrl;
-    }
-
-    public boolean isSupplyBalance() {
-        return supplyBalance;
-    }
-
-    public void setSupplyBalance(boolean supplyBalance) {
-        this.supplyBalance = supplyBalance;
-    }
-
-    public String getBalanceUrl() {
-        return balanceUrl;
-    }
-
-    public void setBalanceUrl(String balanceUrl) {
-        this.balanceUrl = balanceUrl;
-    }
-
-    public String getBackgroundPic() {
-        return backgroundPic;
-    }
-
-    public void setBackgroundPic(String backgroundPic) {
-        this.backgroundPic = backgroundPic;
-    }
-
-    public CustomField getCustomField1() {
-        return customField1;
-    }
-
-    public void setCustomField1(CustomField customField1) {
-        this.customField1 = customField1;
-    }
-
-    public CustomField getCustomField2() {
-        return customField2;
-    }
-
-    public void setCustomField2(CustomField customField2) {
-        this.customField2 = customField2;
-    }
-
-    public CustomField getCustomField3() {
-        return customField3;
-    }
-
-    public void setCustomField3(CustomField customField3) {
-        this.customField3 = customField3;
-    }
-
-    public String getBonusCleared() {
-        return bonusCleared;
-    }
-
-    public void setBonusCleared(String bonusCleared) {
-        this.bonusCleared = bonusCleared;
-    }
-
-    public String getBonusRules() {
-        return bonusRules;
-    }
-
-    public void setBonusRules(String bonusRules) {
-        this.bonusRules = bonusRules;
-    }
-
-    public String getBalanceRules() {
-        return balanceRules;
-    }
-
-    public void setBalanceRules(String balanceRules) {
-        this.balanceRules = balanceRules;
-    }
-
-    public String getActivateUrl() {
-        return activateUrl;
-    }
-
-    public void setActivateUrl(String activateUrl) {
-        this.activateUrl = activateUrl;
-    }
-
-    public CustomCell getCustomCell1() {
-        return customCell1;
-    }
-
-    public void setCustomCell1(CustomCell customCell1) {
-        this.customCell1 = customCell1;
-    }
-
-    public BonusRule getBonusRule() {
-        return bonusRule;
-    }
-
-    public void setBonusRule(BonusRule bonusRule) {
-        this.bonusRule = bonusRule;
-    }
-
-    public int getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(int discount) {
-        this.discount = discount;
-    }
-
+    @Getter
+    @Setter
     public static class CustomField {
 
         /**
@@ -273,24 +136,11 @@ public class Member extends AbstractCard {
         private String name;
 
         private String url;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
     }
 
+
+    @Getter
+    @Setter
     public static class CustomCell {
 
         /**
@@ -308,31 +158,10 @@ public class Member extends AbstractCard {
          */
         private String url;
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getTips() {
-            return tips;
-        }
-
-        public void setTips(String tips) {
-            this.tips = tips;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
     }
 
+    @Getter
+    @Setter
     public static class BonusRule {
 
         @JsonProperty("cost_money_unit")
@@ -358,69 +187,5 @@ public class Member extends AbstractCard {
 
         @JsonProperty("least_money_to_use_bonus")
         private int max_reduce_bonus;
-
-        public int getCostMoneyUnit() {
-            return costMoneyUnit;
-        }
-
-        public void setCostMoneyUnit(int costMoneyUnit) {
-            this.costMoneyUnit = costMoneyUnit;
-        }
-
-        public int getIncreaseBonus() {
-            return increaseBonus;
-        }
-
-        public void setIncreaseBonus(int increaseBonus) {
-            this.increaseBonus = increaseBonus;
-        }
-
-        public int getMaxIncreaseBonus() {
-            return maxIncreaseBonus;
-        }
-
-        public void setMaxIncreaseBonus(int maxIncreaseBonus) {
-            this.maxIncreaseBonus = maxIncreaseBonus;
-        }
-
-        public int getInitIncreaseBonus() {
-            return initIncreaseBonus;
-        }
-
-        public void setInitIncreaseBonus(int initIncreaseBonus) {
-            this.initIncreaseBonus = initIncreaseBonus;
-        }
-
-        public int getCostBonusUnit() {
-            return costBonusUnit;
-        }
-
-        public void setCostBonusUnit(int costBonusUnit) {
-            this.costBonusUnit = costBonusUnit;
-        }
-
-        public int getReduceMoney() {
-            return reduceMoney;
-        }
-
-        public void setReduceMoney(int reduceMoney) {
-            this.reduceMoney = reduceMoney;
-        }
-
-        public int getLeastMoney2UseBonus() {
-            return leastMoney2UseBonus;
-        }
-
-        public void setLeastMoney2UseBonus(int leastMoney2UseBonus) {
-            this.leastMoney2UseBonus = leastMoney2UseBonus;
-        }
-
-        public int getMax_reduce_bonus() {
-            return max_reduce_bonus;
-        }
-
-        public void setMax_reduce_bonus(int max_reduce_bonus) {
-            this.max_reduce_bonus = max_reduce_bonus;
-        }
     }
 }

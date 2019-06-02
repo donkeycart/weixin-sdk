@@ -1,11 +1,15 @@
 package com.riversoft.weixin.mp.card.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 优惠券
  * Created by exizhai on 11/28/2015.
  */
+@Getter
+@Setter
 public class Groupon extends AbstractCard {
 
     /**
@@ -13,13 +17,5 @@ public class Groupon extends AbstractCard {
      */
     @JsonProperty("default_detail")
     private String detail;
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
 
 }

@@ -330,15 +330,6 @@ public class WxClient {
         }
     }
 
-    /**
-     * @param url
-     * @param file
-     * @return
-     */
-    private String httpPost(String url, File file) {
-        return httpPost(url, file, null);
-    }
-
     private String httpPost(String url, File file, Map<String, String> form) {
 
         RequestBody fileBody = RequestBody.create(MediaType.parse("application/octet-stream"), file);

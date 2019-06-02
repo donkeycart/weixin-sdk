@@ -5,12 +5,16 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.riversoft.weixin.common.util.BooleanDeserializer;
 import com.riversoft.weixin.common.util.BooleanSerializer;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * Created by exizhai on 11/30/2015.
  */
+@Setter
+@Getter
 public class Business {
 
     private String sid;
@@ -64,174 +68,9 @@ public class Business {
     @JsonSerialize(using = BooleanSerializer.class)
     private boolean updated;
 
-    public String getBusinessName() {
-        return businessName;
-    }
 
-    public void setBusinessName(String businessName) {
-        this.businessName = businessName;
-    }
-
-    public String getBranchName() {
-        return branchName;
-    }
-
-    public void setBranchName(String branchName) {
-        this.branchName = branchName;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String[] getCategories() {
-        return categories;
-    }
-
-    public void setCategories(String[] categories) {
-        this.categories = categories;
-    }
-
-    public int getOffsetType() {
-        return offsetType;
-    }
-
-    public void setOffsetType(int offsetType) {
-        this.offsetType = offsetType;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public List<Photo> getPhotoList() {
-        return photoList;
-    }
-
-    public void setPhotoList(List<Photo> photoList) {
-        this.photoList = photoList;
-    }
-
-    public String getRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(String recommend) {
-        this.recommend = recommend;
-    }
-
-    public String getSpecial() {
-        return special;
-    }
-
-    public void setSpecial(String special) {
-        this.special = special;
-    }
-
-    public String getIntroduction() {
-        return introduction;
-    }
-
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
-
-    public String getOpenTime() {
-        return openTime;
-    }
-
-    public void setOpenTime(String openTime) {
-        this.openTime = openTime;
-    }
-
-    public int getAvgPrice() {
-        return avgPrice;
-    }
-
-    public void setAvgPrice(int avgPrice) {
-        this.avgPrice = avgPrice;
-    }
-
-    public String getSid() {
-        return sid;
-    }
-
-    public void setSid(String sid) {
-        this.sid = sid;
-    }
-
-    public AvailableState getAvailableState() {
-        return availableState;
-    }
-
-    public void setAvailableState(AvailableState availableState) {
-        this.availableState = availableState;
-    }
-
-    public boolean isUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(boolean updated) {
-        this.updated = updated;
-    }
-
-    public String getPoiId() {
-        return poiId;
-    }
-
-    public void setPoiId(String poiId) {
-        this.poiId = poiId;
-    }
-
+    @Setter
+    @Getter
     public static class Photo {
 
         @JsonProperty("photo_url")
@@ -241,14 +80,6 @@ public class Business {
         }
 
         public Photo(String url) {
-            this.url = url;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
             this.url = url;
         }
     }
