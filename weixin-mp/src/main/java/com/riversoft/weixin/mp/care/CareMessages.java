@@ -12,6 +12,9 @@ import com.riversoft.weixin.mp.base.WxEndpoint;
 import com.riversoft.weixin.mp.care.bean.Card;
 import com.riversoft.weixin.mp.care.bean.Music;
 import com.riversoft.weixin.mp.care.bean.Video;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,9 +25,8 @@ import java.util.Map;
  * 客服接口发送消息
  * Created by exizhai on 11/23/2015.
  */
+@Slf4j
 public class CareMessages {
-
-    private static Logger logger = LoggerFactory.getLogger(CareMessages.class);
 
     private WxClient wxClient;
 
@@ -254,6 +256,8 @@ public class CareMessages {
         return request;
     }
 
+    @Getter
+    @Setter
     public static class KfAccount {
 
         @JsonProperty("kf_account")
@@ -263,14 +267,5 @@ public class CareMessages {
             this.account = account;
         }
 
-        public String getAccount() {
-            return account;
-        }
-
-        public void setAccount(String account) {
-            this.account = account;
-        }
     }
-
-
 }

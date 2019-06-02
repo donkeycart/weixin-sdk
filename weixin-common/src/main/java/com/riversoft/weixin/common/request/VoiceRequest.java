@@ -4,10 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.riversoft.weixin.common.message.XmlMessageHeader;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by exizhai on 9/29/2015.
  */
+@Setter
+@Getter
 @JacksonXmlRootElement(localName = "xml")
 public class VoiceRequest extends XmlMessageHeader {
 
@@ -25,37 +29,4 @@ public class VoiceRequest extends XmlMessageHeader {
     @JsonProperty("Recognition")
     @JacksonXmlCData
     private String recognition;
-
-    public String getMsgId() {
-        return msgId;
-    }
-
-    public void setMsgId(String msgId) {
-        this.msgId = msgId;
-    }
-
-    public String getMediaId() {
-        return mediaId;
-    }
-
-    public void setMediaId(String mediaId) {
-        this.mediaId = mediaId;
-    }
-
-    public String getFormat() {
-        return format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-
-    public String getRecognition() {
-        return recognition;
-    }
-
-    public void setRecognition(String recognition) {
-        this.recognition = recognition;
-    }
 }

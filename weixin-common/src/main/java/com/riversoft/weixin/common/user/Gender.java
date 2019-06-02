@@ -9,7 +9,7 @@ public enum Gender {
 
     private int code;
 
-    private Gender(int code) {
+    Gender(int code) {
         this.code = code;
     }
 

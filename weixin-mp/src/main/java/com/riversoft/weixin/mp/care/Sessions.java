@@ -9,8 +9,9 @@ import com.riversoft.weixin.mp.base.WxEndpoint;
 import com.riversoft.weixin.mp.care.bean.Session;
 import com.riversoft.weixin.mp.care.bean.SessionLog;
 import com.riversoft.weixin.mp.care.bean.WaitingSessions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -21,9 +22,8 @@ import java.util.Map;
  * 客服会话管理
  * Created by exizhai on 11/22/2015.
  */
+@Slf4j
 public class Sessions {
-
-    private static Logger logger = LoggerFactory.getLogger(Accounts.class);
 
     private WxClient wxClient;
 
@@ -53,12 +53,12 @@ public class Sessions {
         Map<String, String> request = new HashMap<>();
         request.put("kf_account", care);
         request.put("openid", openId);
-        if (!(text == null || "".equals(text))) {
+        if (!text.isBlank()) {
             request.put("text", text);
         }
 
         String json = JsonMapper.nonEmptyMapper().toJson(request);
-        logger.debug("create session: {}", json);
+        log.debug("create session: {}", json);
         wxClient.post(url, json);
     }
 
@@ -79,7 +79,7 @@ public class Sessions {
         }
 
         String json = JsonMapper.nonEmptyMapper().toJson(request);
-        logger.debug("close session: {}", json);
+        log.debug("close session: {}", json);
         wxClient.post(url, json);
     }
 
@@ -93,7 +93,7 @@ public class Sessions {
         String url = WxEndpoint.get("url.care.session.get");
 
         String response = wxClient.get(String.format(url, openId));
-        logger.debug("get session {} for user: {}", response, openId);
+        log.debug("get session {} for user: {}", response, openId);
         return JsonMapper.defaultMapper().fromJson(response, Session.class);
     }
 
@@ -106,7 +106,7 @@ public class Sessions {
     public List<Session> getSessionsByAccount(String account) {
         String url = WxEndpoint.get("url.care.session.list.byaccount");
         String response = wxClient.get(String.format(url, account));
-        logger.debug("list care sessions by care account :{}", response);
+        log.debug("list care sessions by care account :{}", response);
         SessionList sessionList = JsonMapper.defaultMapper().fromJson(response, SessionList.class);
         return sessionList.getSessions();
     }
@@ -119,7 +119,7 @@ public class Sessions {
     public WaitingSessions getWaitingSessions() {
         String url = WxEndpoint.get("url.care.session.listwait");
         String response = wxClient.get(url);
-        logger.debug("list care waiting sessions :{}", response);
+        log.debug("list care waiting sessions :{}", response);
         WaitingSessions sessionList = JsonMapper.defaultMapper().fromJson(response, WaitingSessions.class);
         return sessionList;
     }
@@ -142,7 +142,7 @@ public class Sessions {
         request.put("pagesize", size);
 
         String json = JsonMapper.nonEmptyMapper().toJson(request);
-        logger.debug("get session logs: {}", json);
+        log.debug("get session logs: {}", json);
         String response = wxClient.post(url, json);
         SessionLogList sessionLogList = JsonMapper.defaultMapper().fromJson(response, SessionLogList.class);
         return sessionLogList.getLogs();
@@ -162,17 +162,11 @@ public class Sessions {
         }
     }
 
+    @Getter
+    @Setter
     public static class SessionLogList {
 
         @JsonProperty("sessionlist")
         private List<SessionLog> logs;
-
-        public List<SessionLog> getLogs() {
-            return logs;
-        }
-
-        public void setLogs(List<SessionLog> logs) {
-            this.logs = logs;
-        }
     }
 }

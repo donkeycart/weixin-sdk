@@ -4,10 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.riversoft.weixin.common.message.XmlMessageHeader;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by exizhai on 9/29/2015.
  */
+@Setter
+@Getter
 @JacksonXmlRootElement(localName = "xml")
 public class VideoRequest extends XmlMessageHeader {
 
@@ -21,28 +25,4 @@ public class VideoRequest extends XmlMessageHeader {
     @JsonProperty("ThumbMediaId")
     @JacksonXmlCData
     private String thumbMediaId;
-
-    public String getMsgId() {
-        return msgId;
-    }
-
-    public void setMsgId(String msgId) {
-        this.msgId = msgId;
-    }
-
-    public String getMediaId() {
-        return mediaId;
-    }
-
-    public void setMediaId(String mediaId) {
-        this.mediaId = mediaId;
-    }
-
-    public String getThumbMediaId() {
-        return thumbMediaId;
-    }
-
-    public void setThumbMediaId(String thumbMediaId) {
-        this.thumbMediaId = thumbMediaId;
-    }
 }

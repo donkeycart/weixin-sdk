@@ -1,24 +1,23 @@
 package com.riversoft.weixin.common.decrypt;
 
-import org.apache.commons.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Random;
 
 /**
  * Created by exizhai on 10/1/2015.
  */
+@Slf4j
 public class MessageDecryption {
 
     static Charset CHARSET = Charset.forName("utf-8");
-    private static Logger logger = LoggerFactory.getLogger(MessageDecryption.class);
-    Base64 base64 = new Base64();
     byte[] aesKey;
     String token;
     String clientId;
@@ -33,13 +32,13 @@ public class MessageDecryption {
      */
     public MessageDecryption(String token, String aes, String clientId) throws AesException {
         if (aes.length() != 43) {
-            logger.error("MessageDecryption constructs failed, aesKey size is not 43.");
+            log.error("MessageDecryption constructs failed, aesKey size is not 43.");
             throw new AesException(AesException.IllegalAesKey);
         }
 
         this.token = token;
         this.clientId = clientId;
-        aesKey = Base64.decodeBase64(aes + "=");
+        aesKey = Base64.getDecoder().decode(aes + "=");
     }
 
     // 生成4个字节的网络字节序
@@ -112,9 +111,9 @@ public class MessageDecryption {
             byte[] encrypted = cipher.doFinal(unencrypted);
 
             // 使用BASE64对加密后的字符串进行编码
-            return base64.encodeToString(encrypted);
+            return  new String(Base64.getDecoder().decode(encrypted), StandardCharsets.UTF_8);
         } catch (Exception e) {
-            logger.error("MessageDecryption encrypt failed.", e);
+            log.error("MessageDecryption encrypt failed.", e);
             throw new AesException(AesException.EncryptAESError);
         }
     }
@@ -136,12 +135,12 @@ public class MessageDecryption {
             cipher.init(Cipher.DECRYPT_MODE, key_spec, iv);
 
             // 使用BASE64对密文进行解码
-            byte[] encrypted = Base64.decodeBase64(text);
+            byte[] encrypted = Base64.getDecoder().decode(text);
 
             // 解密
             original = cipher.doFinal(encrypted);
         } catch (Exception e) {
-            logger.error("MessageDecryption decrypt failed.", e);
+            log.error("MessageDecryption decrypt failed.", e);
             throw new AesException(AesException.DecryptAESError);
         }
 
@@ -159,13 +158,13 @@ public class MessageDecryption {
             from_corpid = new String(Arrays.copyOfRange(bytes, 20 + xmlLength, bytes.length),
                     CHARSET);
         } catch (Exception e) {
-            logger.error("MessageDecryption decrypt failed.", e);
+            log.error("MessageDecryption decrypt failed.", e);
             throw new AesException(AesException.IllegalBuffer);
         }
 
         // corpid不相同的情况
         if (!from_corpid.equals(clientId)) {
-            logger.error("MessageDecryption decrypt failed, corpid mismatches.");
+            log.error("MessageDecryption decrypt failed, corpid mismatches.");
             throw new AesException(AesException.ValidateCorpidError);
         }
         return xmlContent;

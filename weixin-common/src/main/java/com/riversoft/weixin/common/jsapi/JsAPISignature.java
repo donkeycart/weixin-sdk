@@ -1,8 +1,13 @@
 package com.riversoft.weixin.common.jsapi;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by exizhai on 1/28/2016.
  */
+@Setter
+@Getter
 public class JsAPISignature {
 
     private String appId;
@@ -15,52 +20,4 @@ public class JsAPISignature {
      * 可选
      */
     private String groupId;
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getNonce() {
-        return nonce;
-    }
-
-    public void setNonce(String nonce) {
-        this.nonce = nonce;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
 }
