@@ -1,18 +1,15 @@
 package com.riversoft.weixin.mp.url;
 
+import java.util.Map;
+
 import com.riversoft.weixin.common.WxClient;
 import com.riversoft.weixin.common.exception.WxRuntimeException;
 import com.riversoft.weixin.common.util.JsonMapper;
 import com.riversoft.weixin.mp.MpWxClientFactory;
 import com.riversoft.weixin.mp.base.AppSetting;
 import com.riversoft.weixin.mp.base.WxEndpoint;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by exizhai on 12/1/2015.
