@@ -12,6 +12,7 @@ import com.riversoft.weixin.mp.care.bean.WaitingSessions;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -53,7 +54,7 @@ public class Sessions {
         Map<String, String> request = new HashMap<>();
         request.put("kf_account", care);
         request.put("openid", openId);
-        if (!text.isBlank()) {
+        if (StringUtils.isNotBlank(text)) {
             request.put("text", text);
         }
 
